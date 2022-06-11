@@ -1,0 +1,37 @@
+
+header {
+    background-image: none;
+    background: linear-gradient(
+      90deg,
+      #2ab781 0,
+      #458fc0 19%,
+      #90b575 40%,
+      #f9ad81 60%,
+      #4382bc 83%,
+      #2ab781
+    );
+    background-size: 10000px 100%;
+    animation: bg 50s linear infinite;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .language {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span{
+        padding: 0.2rem;
+        cursor: pointer;
+      }
+  }
+  }
+  
+  @keyframes bg {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: 10000px;
+    }
+  }
