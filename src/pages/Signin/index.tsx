@@ -95,7 +95,7 @@ const Signin: React.FunctionComponent = () => {
       </div>
 
       {/* for showing notification */}
-      <ToastContainer autoClose={50000} />
+      <ToastContainer autoClose={4000} />
     </section>
   );
 };
