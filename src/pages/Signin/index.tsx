@@ -39,54 +39,63 @@ const Signin: React.FunctionComponent = () => {
   return (
     <section className="signin">
       <div className="signin_container">
-      <div className="signin_content">
-        <h1>{Localization.Sign_in}</h1>
-        <Formik
-          initialValues={signInValue}
-          onSubmit={(e) => submitForm(e)}
-          validationSchema={SignupSchema}
-        >
-          {({ isValid, dirty }) => (
-            <Form method="post">
-              <FormControl
-                control={APP_FORM_CONTROL.INPUT}
-                label={Localization.Email}
-                name="email"
-              />
-              <FormControl
-                control={APP_FORM_CONTROL.INPUT}
-                label={Localization.Password}
-                name="password"
-                type="password"
-                autoComplete="on"
-              />
-              <FormControl
-                control={APP_FORM_CONTROL.CHECKBOX}
-                label={`${Localization.Remember_me}?`}
-                name="remember"
-              />
-              <button type="submit" disabled={!isValid || !dirty}>
-                {state.signinReducer.loading ? <Loading /> : Localization.Submit}
-              </button>
-            </Form>
-          )}
-        </Formik>
-        <div className="signin_links">
-          <div>
-            <strong>{Localization.Forget_your_password}</strong>
+        <div className="signin_content">
+          <h1>{Localization.Sign_in}</h1>
+          <Formik
+            initialValues={signInValue}
+            onSubmit={(e) => submitForm(e)}
+            validationSchema={SignupSchema}
+          >
+            {() => (
+              <Form method="post">
+                <FormControl
+                  control={APP_FORM_CONTROL.INPUT}
+                  label={Localization.Email}
+                  name="email"
+                />
+                <FormControl
+                  control={APP_FORM_CONTROL.INPUT}
+                  label={Localization.Password}
+                  name="password"
+                  type="password"
+                  autoComplete="on"
+                />
+                <FormControl
+                  control={APP_FORM_CONTROL.CHECKBOX}
+                  label={`${Localization.Remember_me}?`}
+                  name="remember"
+                  data-testid="checkbox-input"
+                />
+                <button
+                  data-testid="submit-button"
+                  type="submit"
+                >
+                  {state.signinReducer.loading ? (
+                    <Loading />
+                  ) : (
+                    Localization.Submit
+                  )}
+                </button>
+              </Form>
+            )}
+          </Formik>
+          <div className="signin_links">
+            <div>
+              <strong>{Localization.Forget_your_password}</strong>
+            </div>
+            <div>
+              {Localization.Dont_have_an_account}?{" "}
+              <strong>{Localization.Sign_up}</strong>
+            </div>
+            <div>
+              <strong>{Localization.Resend_email_confirmation}</strong>
+            </div>
           </div>
-          <div>
-          {Localization.Dont_have_an_account}? <strong>{Localization.Sign_up}</strong>
-          </div>
-          <div>
-            <strong>{Localization.Resend_email_confirmation}</strong>
-          </div>
-        </div>
         </div>
       </div>
 
       {/* for showing notification */}
-      <ToastContainer autoClose={4000} />
+      <ToastContainer autoClose={50000} />
     </section>
   );
 };
