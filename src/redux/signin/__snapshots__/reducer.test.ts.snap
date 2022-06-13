@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing for reducer get snap shot of signin reducer 1`] = `
+Object {
+  "error": "",
+  "loading": false,
+  "signin": Array [],
+}
+`;
